@@ -75,8 +75,8 @@ metadata:
   namespace: kube-system
 type: Opaque
 data:
-  crt: *
-  key: *
+  crt: '*'
+  key: '*'
 
 ---
 
