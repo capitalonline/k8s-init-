@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+   name: alarm
+   namespace: monitoring
+spec:
+   rules:
+   - host: k8s.alarm
+     http:
+       paths:
+       - path: /
+         backend:
+          serviceName: alertmanager-operated
+          servicePort: 9093

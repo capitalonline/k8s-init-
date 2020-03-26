@@ -1,0 +1,17 @@
+apiVersion: kubeadm.k8s.io/v1beta1
+kind: ClusterConfiguration
+kubernetesVersion: v1.17.0
+apiServer:
+  certSANs:
+    - ""
+  extraArgs:
+    enable-aggregator-routing: "true"
+    etcd-servers: ""
+controlPlaneEndpoint: ""
+imageRepository: registry-bj.capitalonline.net/cck
+networking:
+  podSubnet: "10.244.0.0/16"
+---
+apiVersion: kubeproxy.config.k8s.io/v1alpha1
+kind: KubeProxyConfiguration
+mode: ipvs
