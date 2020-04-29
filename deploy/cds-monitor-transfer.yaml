@@ -39,16 +39,16 @@ spec:
     spec:
       containers:
         - name: cds-monitor-transfer
-          image: registry-bj.capitalonline.net/cck/web_app:0.13
+          image: registry-bj.capitalonline.net/cck/web_app:1.0
           ports:
             - containerPort: 6666
               protocol: TCP
           resources:
             requests:
-              memory: "150Mi"
+              memory: "50Mi"
               cpu: "100m"
             limits:
-              memory: "250Mi"
+              memory: "100Mi"
               cpu: "100m"
           volumeMounts:
           - mountPath: /config
