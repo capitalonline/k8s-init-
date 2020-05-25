@@ -10,7 +10,7 @@ apiServer:
 controlPlaneEndpoint: ""
 imageRepository: registry-bj.capitalonline.net/cck
 networking:
-  podSubnet: "10.244.0.0/16"
+  podSubnet: "10.0.0.0/8"
 ---
 apiVersion: kubeproxy.config.k8s.io/v1alpha1
 kind: KubeProxyConfiguration
