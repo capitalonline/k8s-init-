@@ -126,6 +126,7 @@ data:
   net-conf.json: |
     {
       "Network": "10.0.0.0/8",
+      "SubnetLen": 16,
       "Backend": {
         "Type": "vxlan"
       }
