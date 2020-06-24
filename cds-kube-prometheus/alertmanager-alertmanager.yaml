@@ -13,6 +13,7 @@ spec:
   nodeSelector:
     kubernetes.io/os: linux
     node-role.kubernetes.io/master: ""
+    node.cck.net/role.infra: "True"
   replicas: 3
   securityContext:
     fsGroup: 2000

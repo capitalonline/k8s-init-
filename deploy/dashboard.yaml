@@ -253,10 +253,13 @@ spec:
       serviceAccountName: kubernetes-dashboard
       nodeSelector:
         "beta.kubernetes.io/os": linux
+        node.cck.net/role.infra: "True"
       # Comment the following tolerations if Dashboard must not be deployed on master
       tolerations:
         - key: node-role.kubernetes.io/master
           effect: NoSchedule
+        - effect: NoSchedule
+          key: node-role.cck.net/infra
 
 ---
 
@@ -321,6 +324,7 @@ spec:
       nodeSelector:
         beta.kubernetes.io/os: linux
         node-role.kubernetes.io/master: ""
+        node.cck.net/role.infra: "True"
       # Comment the following tolerations if Dashboard must not be deployed on master
       #测试
       tolerations:

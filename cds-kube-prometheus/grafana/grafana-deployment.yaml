@@ -123,6 +123,7 @@ spec:
       nodeSelector:
         beta.kubernetes.io/os: linux
         node-role.kubernetes.io/master: ""
+        node.cck.net/role.infra: "True"
       securityContext:
         #runAsNonRoot: true
         runAsUser: 0
