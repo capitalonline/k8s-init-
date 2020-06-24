@@ -18,6 +18,7 @@ spec:
   nodeSelector:
     kubernetes.io/os: linux
     node-role.kubernetes.io/master: ""
+    node.cck.net/role.infra: "True"
   podMonitorNamespaceSelector: {}
   podMonitorSelector: {}
   replicas: 2

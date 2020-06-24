@@ -26,6 +26,7 @@ spec:
       serviceAccountName: metrics-server
       nodeSelector:
         node-role.kubernetes.io/master: ""
+        node.cck.net/role.infra: "True"
       tolerations:
         - effect: NoSchedule
           key: node-role.kubernetes.io/master
