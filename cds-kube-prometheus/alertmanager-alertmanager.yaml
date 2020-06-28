@@ -9,6 +9,8 @@ spec:
   tolerations:
   - key: "node-role.kubernetes.io/master"
     effect: "NoSchedule"
+  - effect: NoSchedule
+    key: node-role.cck.net/infra
   baseImage: registry-bj.capitalonline.net/cck/prometheus/alertmanager
   nodeSelector:
     kubernetes.io/os: linux
