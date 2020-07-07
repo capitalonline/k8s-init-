@@ -210,7 +210,7 @@ spec:
             secretKeyRef:
               key: access_key_secret
               name: cck-secrets
-        image: capitalonline/cds-csi-driver:v1.2.2
+        image: capitalonline/cds-csi-driver:v1.2.3
         imagePullPolicy: IfNotPresent
         livenessProbe:
           exec:
