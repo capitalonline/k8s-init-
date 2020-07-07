@@ -11,7 +11,8 @@ spec:
     effect: "NoSchedule"
   - effect: NoSchedule
     key: node-role.cck.net/infra
-  baseImage: registry-bj.capitalonline.net/cck/prometheus/alertmanager
+  #baseImage: registry-bj.capitalonline.net/cck/prometheus/alertmanager
+  baseImage: capitalonline/alertmanager:v0.18.0
   nodeSelector:
     kubernetes.io/os: linux
     node-role.kubernetes.io/master: ""

@@ -211,8 +211,8 @@ spec:
     spec:
       containers:
         - name: kubernetes-dashboard
-          #image: kubernetesui/dashboard:v2.0.0-beta6
-          image: registry-bj.capitalonline.net/cck/dashboard:v2.0.0-beta6
+          #image: registry-bj.capitalonline.net/cck/dashboard:v2.0.0-beta6
+          image: capitalonline/dashboard:v2.0.0-beta6
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8443
@@ -301,7 +301,8 @@ spec:
     spec:
       containers:
         - name: dashboard-metrics-scraper
-          image: registry-bj.capitalonline.net/cck/metrics-scraper:v1.0.1
+          #image: registry-bj.capitalonline.net/cck/metrics-scraper:v1.0.1
+          image: capitalonline/metrics-scraper:v1.0.1
           ports:
             - containerPort: 8000
               protocol: TCP

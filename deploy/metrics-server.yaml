@@ -39,8 +39,8 @@ spec:
         emptyDir: {}
       containers:
       - name: metrics-server
-        #image: ccr.ccs.tencentyun.com/mirrors/metrics-server-amd64:v0.3.1
-        image: registry-bj.capitalonline.net/cck/metrics-server-amd64:v0.3.1
+        #image: registry-bj.capitalonline.net/cck/metrics-server-amd64:v0.3.1
+        image: capitalonline/metrics-server-amd64:v0.3.1
         #imagePullPolicy: 
         command:
         - /metrics-server

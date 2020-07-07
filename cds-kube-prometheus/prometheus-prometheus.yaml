@@ -16,7 +16,8 @@ spec:
     - name: alertmanager-main
       namespace: monitoring
       port: web
-  baseImage: registry-bj.capitalonline.net/cck/prometheus/prometheus
+  #baseImage: registry-bj.capitalonline.net/cck/prometheus/prometheus
+  baseImage: capitalonline/prometheus:v2.11.0
   nodeSelector:
     kubernetes.io/os: linux
     node-role.kubernetes.io/master: ""

@@ -214,8 +214,8 @@ spec:
           key: node-role.cck.net/infra
       containers:
         - name: nginx-ingress-controller
-          #image: quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.26.1
-          image: registry-bj.capitalonline.net/cck/nginx-ingress-controller:0.26.1
+          #image: registry-bj.capitalonline.net/cck/nginx-ingress-controller:0.26.1
+          image: capitalonline/nginx-ingress-controller:0.26.1
           imagePullPolicy: IfNotPresent
           args:
             - /nginx-ingress-controller

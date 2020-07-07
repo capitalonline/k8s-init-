@@ -169,8 +169,8 @@ spec:
       serviceAccountName: flannel
       initContainers:
       - name: install-cni
-        #image: quay.io/coreos/flannel:v0.11.0-amd64
-        image: registry-bj.capitalonline.net/cck/flannel:v0.11.0-amd64
+        #image: registry-bj.capitalonline.net/cck/flannel:v0.11.0-amd64
+        image: capitalonline/flannel:v0.11.0-amd64
         imagePullPolicy: IfNotPresent
         command:
         - cp
@@ -186,7 +186,8 @@ spec:
       containers:
       - name: kube-flannel
         #image: quay.io/coreos/flannel:v0.11.0-amd64
-        image: registry-bj.capitalonline.net/cck/flannel:v0.11.0-amd64
+        #image: registry-bj.capitalonline.net/cck/flannel:v0.11.0-amd64
+        image: capitalonline/flannel:v0.11.0-amd64
         imagePullPolicy: IfNotPresent
         command:
         - /opt/bin/flanneld

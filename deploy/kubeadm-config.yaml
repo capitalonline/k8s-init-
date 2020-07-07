@@ -8,7 +8,8 @@ apiServer:
     enable-aggregator-routing: "true"
     etcd-servers: ""
 controlPlaneEndpoint: ""
-imageRepository: registry-bj.capitalonline.net/cck
+#imageRepository: registry-bj.capitalonline.net/cck
+imageRepository: capitalonline
 networking:
   podSubnet: "10.244.0.0/16"
 controllerManagerExtraArgs:

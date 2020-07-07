@@ -39,7 +39,8 @@ spec:
     spec:
       containers:
         - name: cds-monitor-transfer
-          image: registry-bj.capitalonline.net/cck/web_app:1.0
+          #image: registry-bj.capitalonline.net/cck/web_app:1.0
+          image: capitalonline/web_app:1.0
           ports:
             - containerPort: 6666
               protocol: TCP

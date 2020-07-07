@@ -21,7 +21,8 @@ spec:
         - effect: NoSchedule
           key: node-role.cck.net/infra
       containers:
-      - image: registry-bj.capitalonline.net/cck/grafana/grafana:6.5.3-cds0.1
+      #- image: registry-bj.capitalonline.net/cck/grafana/grafana:6.5.3-cds0.1
+      - image: capitalonline/grafana:6.5.3-cds0.1
         name: grafana
         ports:
         - containerPort: 3000

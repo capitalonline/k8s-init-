@@ -29,9 +29,12 @@ spec:
       - args:
         - --kubelet-service=kube-system/kubelet
         - --logtostderr=true
-        - --config-reloader-image=registry-bj.capitalonline.net/cck/coreos/configmap-reload:v0.0.1
-        - --prometheus-config-reloader=registry-bj.capitalonline.net/cck/coreos/prometheus-config-reloader:v0.34.0
-        image: registry-bj.capitalonline.net/cck/coreos/prometheus-operator:v0.34.0
+        #- --config-reloader-image=registry-bj.capitalonline.net/cck/coreos/configmap-reload:v0.0.1
+        - --config-reloader-image=capitalonline/configmap-reload:v0.0.1
+        #- --prometheus-config-reloader=registry-bj.capitalonline.net/cck/coreos/prometheus-config-reloader:v0.34.0
+        - --prometheus-config-reloader=capitalonline/prometheus-config-reloader:v0.34.0
+        #image: registry-bj.capitalonline.net/cck/coreos/prometheus-operator:v0.34.0
+        image: capitalonline/prometheus-operator:v0.34.0
         name: prometheus-operator
         ports:
         - containerPort: 8080
