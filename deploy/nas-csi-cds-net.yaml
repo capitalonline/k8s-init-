@@ -192,6 +192,8 @@ spec:
         app: nas-csi-cds-controller
         type: csi-provisioner
     spec:
+      nodeSelector:
+        node.cck.net/role.infra: "True"
       containers:
       - args:
         - --endpoint=$(CSI_ENDPOINT)
@@ -258,13 +260,13 @@ spec:
         volumeMounts:
         - mountPath: /csi
           name: socket-dir
-      nodeSelector:
-        beta.kubernetes.io/os: linux
       priorityClassName: system-cluster-critical
       serviceAccount: cds-csi-sa
       tolerations:
       - key: CriticalAddonsOnly
         operator: Exists
+      - effect: NoSchedule
+        key: node-role.cck.net/infra
       volumes:
       - emptyDir: {}
         name: socket-dir
