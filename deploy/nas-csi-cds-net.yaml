@@ -265,8 +265,7 @@ spec:
       tolerations:
       - key: CriticalAddonsOnly
         operator: Exists
-      - effect: NoSchedule
-        key: node-role.cck.net/infra
+      - operator: Exists
       volumes:
       - emptyDir: {}
         name: socket-dir
