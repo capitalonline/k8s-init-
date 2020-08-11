@@ -217,6 +217,11 @@ spec:
             configMapKeyRef:
               key: oversea
               name: cds-properties
+        - name: CDS_CLUSTER_ID
+          valueFrom:
+            configMapKeyRef:
+              key: k8s_cluster_id
+              name: cds-properties
         image: capitalonline/cds-csi-driver:v1.3.0
         imagePullPolicy: IfNotPresent
         livenessProbe:
