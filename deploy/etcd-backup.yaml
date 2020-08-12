@@ -1,0 +1,92 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: etcd-backup
+  namespace: kube-system
+spec:
+  schedule: "*/2 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: backup
+            image: capitalonline/etcd:3.4.3-0
+            env:
+            - name: ETCDCTL_API
+              value: "3"
+            command: ["/bin/sh", "-c"]
+            args: ["etcdctl --endpoints=https://127.0.0.1:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/healthcheck-client.crt --key=/etc/kubernetes/pki/etcd/healthcheck-client.key endpoint status --cluster | cut -f 1,5 -d ',' | grep true| cut -f1 -d ',' | xargs -I {} etcdctl --endpoints={} --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/healthcheck-client.crt --key=/etc/kubernetes/pki/etcd/healthcheck-client.key snapshot save etcd-snapshot-$(date +%Y-%m-%d_%H:%M:%S_%Z).db"]
+            volumeMounts:
+            - mountPath: /cck-kubernetes
+              name: cck-kubernetes
+              readOnly: true
+            - mountPath: /backup
+              name: backup
+          restartPolicy: OnFailure
+          nodeSelector:
+            node-role.kubernetes.io/master: ""
+            node.cck.net/role.infra: "True"
+          tolerations:
+          - key: "node-role.kubernetes.io/master"
+            effect: "NoSchedule"
+          - effect: NoSchedule
+            key: node-role.cck.net/infra
+          hostNetwork: true
+          volumes:
+          - name: cck-kubernetes
+            hostPath:
+              path: /etc/kubernetes/pki/etcd
+              type: DirectoryOrCreate
+          - name: backup
+            persistentVolumeClaim:
+              claimName: etcd-backup-pvc
+              
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: etcd-backup-pvc
+  namespace: kube-system
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: etcd-backup-sc
+      
+      
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: etcd-backup-pv
+spec:
+  capacity:
+    storage: 5Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  local:
+    path: /var/lib/docker/etcd_backup
+  storageClassName: etcd-backup-sc
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - master001
+          
+---
+ 
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: etcd-backup-sc
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
