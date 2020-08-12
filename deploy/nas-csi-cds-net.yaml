@@ -273,8 +273,6 @@ spec:
       priorityClassName: system-cluster-critical
       serviceAccount: cds-csi-sa
       tolerations:
-      - key: CriticalAddonsOnly
-        operator: Exists
       - operator: Exists
       volumes:
       - emptyDir: {}
