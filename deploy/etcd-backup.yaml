@@ -16,7 +16,7 @@ spec:
             - name: ETCDCTL_API
               value: "3"
             command: ["/bin/sh", "-c"]
-            args: ["etcdctl --endpoints=https://127.0.0.1:2379 --cacert=/cck-kubernetes/ca.crt --cert=/cck-kubernetes/healthcheck-client.crt --key=/cck-kubernetes/healthcheck-client.key endpoint status --cluster | cut -f 1,5 -d ',' | grep true| cut -f1 -d ',' | xargs -I {} etcdctl --endpoints={} --cacert=/cck-kubernetes/ca.crt --cert=/cck-kubernetes/healthcheck-client.crt --key=/cck-kubernetes/healthcheck-client.key snapshot save etcd-snapshot-$(date +%Y-%m-%d_%H:%M:%S_%Z).db"]
+            args: ["etcdctl --endpoints=https://127.0.0.1:2379 --cacert=/cck-kubernetes/ca.crt --cert=/cck-kubernetes/healthcheck-client.crt --key=/cck-kubernetes/healthcheck-client.key endpoint status --cluster | cut -f 1,5 -d ',' | grep true| cut -f1 -d ',' | xargs -I {} etcdctl --endpoints={} --cacert=/cck-kubernetes/ca.crt --cert=/cck-kubernetes/healthcheck-client.crt --key=/cck-kubernetes/healthcheck-client.key snapshot save /backup/etcd-snapshot-$(date +%Y-%m-%d_%H:%M:%S_%Z).db"]
             volumeMounts:
             - mountPath: /cck-kubernetes
               name: cck-kubernetes
