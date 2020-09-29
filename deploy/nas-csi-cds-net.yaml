@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: cds-csi-sa
+  name: nas-cds-csi-sa
   namespace: kube-system
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: cds-csi-cluster-role
+  name: nas-cds-csi-cluster-role
 rules:
 - apiGroups:
   - ""
@@ -151,29 +151,29 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: cds-csi-cluster-role-bind
+  name: nas-cds-csi-cluster-role-bind
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: cds-csi-cluster-role
+  name: nas-cds-csi-cluster-role
 subjects:
 - kind: ServiceAccount
-  name: cds-csi-sa
+  name: nas-cds-csi-sa
   namespace: kube-system
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    name: csi-provisioner
-  name: csi-provisioner
+    name: nas-csi-provisioner
+  name: nas-csi-provisioner
   namespace: kube-system
 spec:
   ports:
   - name: healthz
-    port: 9808
+    port: 9809
   selector:
-    type: csi-provisioner
+    type: nas-csi-provisioner
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -185,7 +185,7 @@ spec:
   selector:
     matchLabels:
       app: nas-csi-cds-controller
-  serviceName: csi-provisioner
+  serviceName: nas-csi-provisioner
   template:
     metadata:
       labels:
@@ -265,13 +265,14 @@ spec:
           name: socket-dir
       - args:
         - --csi-address=/csi/csi.sock
+        - --health-port=9809
         image: capitalonline/csi-livenessprobe:v2.0.0
         name: liveness-probe
         volumeMounts:
         - mountPath: /csi
           name: socket-dir
       priorityClassName: system-cluster-critical
-      serviceAccount: cds-csi-sa
+      serviceAccount: nas-cds-csi-sa
       tolerations:
       - operator: Exists
       volumes:
@@ -351,7 +352,7 @@ spec:
           name: registration-dir
       - args:
         - --csi-address=/var/lib/kubelet/plugins/nas.csi.cds.net/csi.sock
-        - --health-port=9809
+        - --health-port=9810
         image: capitalonline/csi-livenessprobe:v2.0.0
         name: nas-liveness-probe
         volumeMounts:
@@ -360,7 +361,7 @@ spec:
       hostNetwork: true
       hostPID: true
       priorityClassName: system-node-critical
-      serviceAccount: cds-csi-sa
+      serviceAccount: nas-cds-csi-sa
       tolerations:
       - operator: Exists
       volumes:

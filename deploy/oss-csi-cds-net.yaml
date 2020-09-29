@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: cds-csi-sa
+  name: oss-cds-csi-sa
   namespace: kube-system
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: cds-csi-cluster-role
+  name: oss-cds-csi-cluster-role
 rules:
 - apiGroups:
   - ""
@@ -151,14 +151,14 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: cds-csi-cluster-role-bind
+  name: oss-cds-csi-cluster-role-bind
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: cds-csi-cluster-role
+  name: oss-cds-csi-cluster-role
 subjects:
 - kind: ServiceAccount
-  name: cds-csi-sa
+  name: oss-cds-csi-sa
   namespace: kube-system
 ---
 apiVersion: apps/v1
@@ -235,7 +235,7 @@ spec:
       hostNetwork: true
       hostPID: true
       priorityClassName: system-node-critical
-      serviceAccount: cds-csi-sa
+      serviceAccount: oss-cds-csi-sa
       tolerations:
       - operator: Exists
       volumes:
