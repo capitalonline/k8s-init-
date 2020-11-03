@@ -136,7 +136,7 @@ spec:
               name: cds-properties
               key: oversea
         #image: registry-bj.capitalonline.net/cck/cdscloud-controller-manager:v1.0.4
-        image: capitalonline/cdscloud-controller-manager:v1.0.4
+        image: capitalonline/cdscloud-controller-manager:v1.0.5
         imagePullPolicy: Always
         name: cds-cloud-controller-manager
         resources:
