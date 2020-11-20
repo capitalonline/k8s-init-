@@ -60,7 +60,7 @@ spec:
         - operator: Exists
       containers:
       - name: fluentd
-        image: registry-bj.capitalonline.net/cck/fluentd-elasticsearch:v2.4.0
+        image: capitalonline/fluentd-elasticsearch:v2.4.0
         env:
           - name:  FLUENT_ELASTICSEARCH_HOST
             value: "elasticsearch.logging.svc.cluster.local"
