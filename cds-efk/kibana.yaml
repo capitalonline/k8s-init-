@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: kibana
-        image: registry-bj.capitalonline.net/cck/kibana:7.9.3
+        image: capitalonline/cck/kibana:7.9.3
         resources:
           limits:
             cpu: 1000m
