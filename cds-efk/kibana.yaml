@@ -30,7 +30,11 @@ spec:
     spec:
       containers:
       - name: kibana
-        image: capitalonline/cck/kibana:7.9.3
+        image: registry-bj.capitalonline.net/cck/kibana:7.9.3
+        volumeMounts:
+          - mountPath: /usr/share/kibana/config/kibana.yml
+            name: configmap
+            subPath: kibana.yml
         resources:
           limits:
             cpu: 1000m
@@ -41,3 +45,8 @@ spec:
             value: http://elasticsearch:9200
         ports:
         - containerPort: 5601
+      volumes:
+        - configMap:
+            defaultMode: 420
+            name: kibana-configmap
+          name: configmap
