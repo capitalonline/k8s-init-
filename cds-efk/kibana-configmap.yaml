@@ -1,0 +1,12 @@
+apiVersion: v1
+data:
+  kibana.yml: |-
+    server.name: kibana
+    server.host: "0"
+    monitoring.ui.container.elasticsearch.enabled: true
+    elasticsearch.hosts: [ "http://elasticsearch-service:9200" ]
+    i18n.locale: "zh-CN"
+kind: ConfigMap
+metadata:
+  name: kibana-configmap
+  namespace: logging
