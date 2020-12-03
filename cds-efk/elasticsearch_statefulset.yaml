@@ -17,7 +17,7 @@ spec:
       nodeSelector:
         beta.kubernetes.io/os: linux
         node-role.kubernetes.io/master: ""
-        node.cck.net/role.infra: "True"
+        node-role.kubernetes.io/infra: ""
       tolerations:
         - key: node-role.kubernetes.io/master
           effect: NoSchedule

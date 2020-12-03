@@ -48,7 +48,7 @@ spec:
       nodeSelector:
         kubernetes.io/os: linux
         node-role.kubernetes.io/master: ""
-        node.cck.net/role.infra: "True"
+        node-role.kubernetes.io/infra: ""
       serviceAccountName: prometheus-adapter
       volumes:
       - emptyDir: {}
