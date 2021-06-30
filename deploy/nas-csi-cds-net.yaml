@@ -222,7 +222,7 @@ spec:
             configMapKeyRef:
               key: k8s_cluster_id
               name: cds-properties
-        image: capitalonline/cds-csi-driver:v2.0.0
+        image: capitalonline/cds-csi-driver:v2.0.2
         imagePullPolicy: IfNotPresent
         livenessProbe:
           exec:
@@ -309,7 +309,7 @@ spec:
         env:
         - name: CSI_ENDPOINT
           value: unix://var/lib/kubelet/plugins/nas.csi.cds.net/csi.sock
-        image: capitalonline/cds-csi-driver:v2.0.0
+        image: capitalonline/cds-csi-driver:v2.0.2
         imagePullPolicy: IfNotPresent
         name: nas-csi-node-server
         securityContext:
