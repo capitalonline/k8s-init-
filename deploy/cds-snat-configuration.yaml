@@ -64,7 +64,7 @@ spec:
                 fieldRef:
                   apiVersion: v1
                   fieldPath: spec.nodeName
-          image: capitalonline/cds-snat-configuration:latest
+          image: capitalonline/cds-snat-configuration:v1.0.0
           name: cds-snat-configuration
           # command: ["/app/cds-snat-configuration"]
           imagePullPolicy: Always
