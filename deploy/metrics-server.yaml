@@ -40,7 +40,7 @@ spec:
       containers:
       - name: metrics-server
         #image: registry-bj.capitalonline.net/cck/metrics-server-amd64:v0.3.1
-        image: capitalonline/metrics-server-amd64:v0.3.1
+        image: capitalonline/metrics-server-amd64:v0.3.6
         #imagePullPolicy: 
         command:
         - /metrics-server
