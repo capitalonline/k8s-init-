@@ -15,7 +15,9 @@ networking:
 controllerManagerExtraArgs:
   cloud-provider: external
   allocate-node-cidrs: "true"
-  node-cidr-mask-size: "25"
+controllerManager:
+  extraArgs:
+    node-cidr-mask-size: "25"
 ---
 apiVersion: kubeproxy.config.k8s.io/v1alpha1
 kind: KubeProxyConfiguration
