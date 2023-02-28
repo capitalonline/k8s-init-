@@ -14,6 +14,8 @@ networking:
   podSubnet: "10.244.0.0/16"
 controllerManagerExtraArgs:
   cloud-provider: external
+  allocate-node-cidrs: "true"
+  node-cidr-mask-size: "25"
 ---
 apiVersion: kubeproxy.config.k8s.io/v1alpha1
 kind: KubeProxyConfiguration
