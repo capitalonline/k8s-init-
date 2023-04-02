@@ -153,6 +153,12 @@ spec:
       automountServiceAccountToken: true
       hostIPC: true
       hostPID: true
+      tolerations:
+        - effect: NoSchedule
+          key: node-role.kubernetes.io/master
+          operator: Exists
+        - effect: NoSchedule
+          key: node-role.cck.net/infra
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
