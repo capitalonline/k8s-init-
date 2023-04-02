@@ -6,7 +6,13 @@ metadata:
   labels:
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/part-of: ingress-nginx
-
+data:
+  keep-alive: "900"
+  keep-alive-requests: "10000"
+  upstream-keepalive-connections: "300"
+  upstream-keepalive-requests: "1000"
+  upstream-keepalive-timeout: "900"
+  
 ---
 kind: ConfigMap
 apiVersion: v1
