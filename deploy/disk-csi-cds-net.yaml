@@ -291,12 +291,15 @@ spec:
       hostNetwork: true
       hostPID: true
       nodeSelector:
-        node-role.kubernetes.io/infra: ""
+        node-role.kubernetes.io/master: ""
       priorityClassName: system-cluster-critical
       serviceAccount: disk-cds-csi-sa
       tolerations:
-      - key: null
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
         operator: Exists
+      - effect: NoSchedule
+        key: node-role.cck.net/infra
       volumes:
       - emptyDir: {}
         name: socket-dir
@@ -402,7 +405,11 @@ spec:
       priorityClassName: system-node-critical
       serviceAccount: disk-cds-csi-sa
       tolerations:
-      - operator: Exists
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
+        operator: Exists
+      - effect: NoSchedule
+        key: node-role.cck.net/infra
       volumes:
       - hostPath:
           path: /var/lib/kubelet

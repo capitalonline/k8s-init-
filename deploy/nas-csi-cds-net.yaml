@@ -193,7 +193,7 @@ spec:
         type: csi-provisioner
     spec:
       nodeSelector:
-        node-role.kubernetes.io/infra: ""
+        node-role.kubernetes.io/master: ""
       containers:
       - args:
         - --endpoint=$(CSI_ENDPOINT)
@@ -274,7 +274,11 @@ spec:
       priorityClassName: system-cluster-critical
       serviceAccount: nas-cds-csi-sa
       tolerations:
-      - operator: Exists
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
+        operator: Exists
+      - effect: NoSchedule
+        key: node-role.cck.net/infra
       volumes:
       - emptyDir: {}
         name: socket-dir
@@ -363,7 +367,11 @@ spec:
       priorityClassName: system-node-critical
       serviceAccount: nas-cds-csi-sa
       tolerations:
-      - operator: Exists
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
+        operator: Exists
+      - effect: NoSchedule
+        key: node-role.cck.net/infra
       volumes:
       - hostPath:
           path: /var/lib/kubelet
