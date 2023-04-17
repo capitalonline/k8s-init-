@@ -295,8 +295,11 @@ spec:
       priorityClassName: system-cluster-critical
       serviceAccount: disk-cds-csi-sa
       tolerations:
-      - key: null
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
         operator: Exists
+      - effect: NoSchedule
+        key: node-role.cck.net/infra
       volumes:
       - emptyDir: {}
         name: socket-dir
