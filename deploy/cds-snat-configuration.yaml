@@ -105,7 +105,7 @@ data:
     snat.refresh.interval = 60
     snat.check.step = 60
     snat.check.sum = 10
-    snat.check.limit = 1
+    snat.check.limit = 3
 ---
 apiVersion: apps/v1
 kind: DaemonSet
@@ -134,7 +134,7 @@ spec:
                 configMapKeyRef:
                   name: cds-properties
                   key: oversea
-          image: capitalonline/cds-snat-configuration:v1.1.2
+          image: capitalonline/cds-snat-configuration:v1.1.3
           name: cds-snat-configuration
           # command: ["/app/cds-snat-configuration"]
           imagePullPolicy: Always
