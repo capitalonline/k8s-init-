@@ -93,6 +93,7 @@ spec:
           key: node-role.kubernetes.io/master
           operator: Exists
         - effect: NoSchedule
+          operator: Exists
           key: node-role.cck.net/infra
       restartPolicy: Always
       volumes:
