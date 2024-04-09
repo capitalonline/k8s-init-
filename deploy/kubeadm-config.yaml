@@ -1,6 +1,6 @@
-apiVersion: kubeadm.k8s.io/v1beta1
+apiVersion: kubeadm.k8s.io/v1beta3
 kind: ClusterConfiguration
-kubernetesVersion: v1.17.0
+kubernetesVersion: v1.26.15
 apiServer:
   certSANs:
     - ""
@@ -8,13 +8,11 @@ apiServer:
     enable-aggregator-routing: "true"
     etcd-servers: ""
 controlPlaneEndpoint: ""
-#imageRepository: registry-bj.capitalonline.net/cck
-imageRepository: capitalonline
+imageRepository: harbor-dev.yun-paas.com/kubernetes
 networking:
   podSubnet: "10.244.0.0/16"
-controllerManagerExtraArgs:
-  cloud-provider: external
 ---
 apiVersion: kubeproxy.config.k8s.io/v1alpha1
 kind: KubeProxyConfiguration
 mode: ipvs
+

@@ -11,7 +11,7 @@ spec:
         spec:
           containers:
           - name: backup
-            image: capitalonline/etcd:3.4.3-0
+            image: registry-bj.capitalonline.net/cck/etcd:3.4.3-0
             env:
             - name: ETCDCTL_API
               value: "3"
@@ -55,3 +55,6 @@ spec:
   resources:
     requests:
       storage: 1Gi
+
+
+
