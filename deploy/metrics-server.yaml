@@ -173,7 +173,7 @@ spec:
         - mountPath: /tmp
           name: tmp-dir
       nodeSelector:
-        node-role.kubernetes.io/master: ""
+        node-role.kubernetes.io/control-plane: ""
         node-role.kubernetes.io/infra: ""
       tolerations:
         - effect: NoSchedule

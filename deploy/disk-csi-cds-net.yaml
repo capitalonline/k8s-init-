@@ -286,7 +286,7 @@ spec:
       hostNetwork: true
       hostPID: true
       nodeSelector:
-        node-role.kubernetes.io/master: ""
+        node-role.kubernetes.io/control-plane: ""
       priorityClassName: system-cluster-critical
       serviceAccount: disk-cds-csi-sa
       tolerations:
@@ -401,7 +401,7 @@ spec:
       serviceAccount: disk-cds-csi-sa
       tolerations:
       - effect: NoSchedule
-        key: node-role.kubernetes.io/master
+        key: node-role.kubernetes.io/control-plane 
         operator: Exists
       - effect: NoSchedule
         key: node-role.cck.net/infra
