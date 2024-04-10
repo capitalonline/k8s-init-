@@ -18,7 +18,7 @@ spec:
         name: prometheus-adapter
     spec:
       tolerations:
-      - key: "node-role.kubernetes.io/master"
+      - key: "node-role.kubernetes.io/control-plane"
         effect: "NoSchedule"
       - effect: NoSchedule
         key: node-role.cck.net/infra
@@ -47,7 +47,7 @@ spec:
           readOnly: false
       nodeSelector:
         kubernetes.io/os: linux
-        node-role.kubernetes.io/master: ""
+        node-role.kubernetes.io/control-plane: ""
         node-role.kubernetes.io/infra: ""
       serviceAccountName: prometheus-adapter
       volumes:

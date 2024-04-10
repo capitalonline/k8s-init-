@@ -106,11 +106,11 @@ spec:
         app: cds-alarm-service
     spec:
       nodeSelector:
-        node-role.kubernetes.io/master: ""
+        node-role.kubernetes.io/control-plane: ""
       tolerations:
         - key: "node-role.cck.net/infra"
           effect: NoSchedule
-        - key: "node-role.kubernetes.io/master"
+        - key: "node-role.kubernetes.io/control-plane"
           effect: NoSchedule
       dnsPolicy: Default
       containers:

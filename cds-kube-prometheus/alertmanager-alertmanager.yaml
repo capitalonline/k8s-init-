@@ -7,7 +7,7 @@ metadata:
   namespace: monitoring
 spec:
   tolerations:
-  - key: "node-role.kubernetes.io/master"
+  - key: "node-role.kubernetes.io/control-plane"
     effect: "NoSchedule"
   - effect: NoSchedule
     key: node-role.cck.net/infra
@@ -15,7 +15,7 @@ spec:
   baseImage: capitalonline/alertmanager
   nodeSelector:
     kubernetes.io/os: linux
-    node-role.kubernetes.io/master: ""
+    node-role.kubernetes.io/control-plane:
     node-role.kubernetes.io/infra: ""
   replicas: 3
   securityContext:

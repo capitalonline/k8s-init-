@@ -7,7 +7,7 @@ metadata:
   namespace: monitoring
 spec:
   tolerations:
-  - key: "node-role.kubernetes.io/master"
+  - key: "node-role.kubernetes.io/control-plane"
     effect: "NoSchedule"
   - effect: NoSchedule
     key: node-role.cck.net/infra
@@ -20,7 +20,7 @@ spec:
   baseImage: capitalonline/prometheus
   nodeSelector:
     kubernetes.io/os: linux
-    node-role.kubernetes.io/master: ""
+    node-role.kubernetes.io/control-plane: ""
     node-role.kubernetes.io/infra: ""
   podMonitorNamespaceSelector: {}
   podMonitorSelector: {}
