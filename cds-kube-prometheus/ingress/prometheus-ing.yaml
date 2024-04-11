@@ -1,14 +1,21 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-   name: prometheus
-   namespace: monitoring
+  annotations:
+    nginx.ingress.kubernetes.io/auth-secret: basic-auth-secret
+    nginx.ingress.kubernetes.io/auth-type: basic
+  name: prometheus
+  namespace: monitoring
 spec:
-   rules:
-   - host: k8s.prometheus
-     http:
-       paths:
-       - path: 
-         backend:
-          serviceName: prometheus-k8s
-          servicePort: 9090
+  ingressClassName: nginx
+  rules:
+  - host: prometheus-i7oqvu.yun-paas.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: prometheus-k8s
+            port: 
+              number: 9090
+        path: null
+        pathType: ImplementationSpecific

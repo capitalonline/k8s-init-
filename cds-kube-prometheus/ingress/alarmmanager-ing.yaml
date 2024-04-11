@@ -1,14 +1,21 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-   name: alarm
-   namespace: monitoring
+  annotations:
+    nginx.ingress.kubernetes.io/auth-secret: basic-auth-secret
+    nginx.ingress.kubernetes.io/auth-type: basic
+  name: alarm
+  namespace: monitoring
 spec:
-   rules:
-   - host: k8s.alarm
-     http:
-       paths:
-       - path: /
-         backend:
-          serviceName: alertmanager-operated
-          servicePort: 9093
+  ingressClassName: nginx
+  rules:
+  - host: alarm-i7oqvu.yun-paas.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: alertmanager-operated
+            port: 
+              number: 9093
+        path: /
+        pathType: ImplementationSpecific
