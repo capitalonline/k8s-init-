@@ -80,7 +80,7 @@ spec:
                 secretKeyRef:
                   name: cck-secrets
                   key: access_key_secret
-          image: registry-bj.capitalonline.net/cck/cds-ha-configuration:v1.0
+          image: capitalonline/cds-ha-configuration:v1.0
           name: cds-reload-lb-configuration
           imagePullPolicy: Always
           volumeMounts:
