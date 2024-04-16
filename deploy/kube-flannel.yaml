@@ -170,7 +170,6 @@ spec:
       initContainers:
       - name: install-cni
         image: capitalonline/flannel:v0.11.0-amd64
-        #image: capitalonline/flannel:v0.11.0-amd64
         imagePullPolicy: IfNotPresent
         command:
         - cp
@@ -185,9 +184,7 @@ spec:
           mountPath: /etc/kube-flannel/
       containers:
       - name: kube-flannel
-        #image: quay.io/coreos/flannel:v0.11.0-amd64
         image: capitalonline/flannel:v0.11.0-amd64
-        #image: capitalonline/flannel:v0.11.0-amd64
         imagePullPolicy: IfNotPresent
         command:
         - /opt/bin/flanneld
