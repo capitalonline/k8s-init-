@@ -1,14 +1,17 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-   name: kibana
-   namespace: logging
+  name: kibana
+  namespace: logging
 spec:
-   rules:
-   - host: kibana-ecndpx.yun-paas.com
-     http:
-       paths:
-       - path:
-         backend:
-          serviceName: kibana
-          servicePort: 5601
+  rules:
+  - host: kibana-3ulvuv.yun-paas.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: kibana
+            port:
+              number: 5601
+        path: /
+        pathType: ImplementationSpecific

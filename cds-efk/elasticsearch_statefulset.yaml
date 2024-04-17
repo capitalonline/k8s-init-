@@ -16,13 +16,13 @@ spec:
     spec:
       nodeSelector:
         beta.kubernetes.io/os: linux
-        node-role.kubernetes.io/master: ""
+        node-role.kubernetes.io/control-plane: ""
         node-role.kubernetes.io/infra: ""
       tolerations:
-        - key: node-role.kubernetes.io/master
+        - key: node-role.kubernetes.io/control-plane
           effect: NoSchedule
-        - effect: NoSchedule
-          key: node-role.cck.net/infra
+        - key: node-role.cck.net/infra
+          effect: NoSchedule
       containers:
       - name: elasticsearch
         image: capitalonline/elasticsearch:7.9.3-amd64
