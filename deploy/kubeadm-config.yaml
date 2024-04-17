@@ -8,7 +8,7 @@ apiServer:
     enable-aggregator-routing: "true"
     etcd-servers: ""
 controlPlaneEndpoint: ""
-imageRepository: harbor-dev.yun-paas.com/kubernetes
+imageRepository: capitalonline
 networking:
   podSubnet: "10.244.0.0/16"
 ---
