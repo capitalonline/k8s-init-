@@ -10,6 +10,6 @@ spec:
     component: kube-scheduler
   ports:
   - name: http-metrics
-    port: 10251
-    targetPort: 10251
+    port: 10259
+    targetPort: 10259
     protocol: TCP
