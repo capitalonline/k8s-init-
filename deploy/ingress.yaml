@@ -474,7 +474,7 @@ spec:
               fieldPath: metadata.namespace
         - name: LD_PRELOAD
           value: /usr/local/lib/libmimalloc.so
-        image: harbor-dev.yun-paas.com/ingress-nginx/controller:v1.10.0
+        image: capitalonline/ingress-nginx-controller:v1.10.0
         imagePullPolicy: IfNotPresent
         lifecycle:
           preStop:
@@ -581,7 +581,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-        image: harbor-dev.yun-paas.com/ingress-nginx/kube-webhook-certgen:v1.4.0
+        image: capitalonline/kube-webhook-certgen:v1.4.0
         imagePullPolicy: IfNotPresent
         name: create
         securityContext:
@@ -634,7 +634,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-        image: harbor-dev.yun-paas.com/ingress-nginx/kube-webhook-certgen:v1.4.0
+        image: capitalonline/kube-webhook-certgen:v1.4.0
         imagePullPolicy: IfNotPresent
         name: patch
         securityContext:

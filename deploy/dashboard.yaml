@@ -219,7 +219,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: kubernetes-dashboard
-          image: harbor-dev.yun-paas.com/kubernetesui/dashboard:v2.7.0 
+          image: capitalonline/dashboard:v2.7.0
           imagePullPolicy: Always
           ports:
             - containerPort: 8443
@@ -310,7 +310,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: dashboard-metrics-scraper
-          image: harbor-dev.yun-paas.com/kubernetesui/metrics-scraper:v1.0.8 
+          image: capitalonline/metrics-scraper:v1.0.8
           ports:
             - containerPort: 8000
               protocol: TCP
