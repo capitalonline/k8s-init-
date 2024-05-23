@@ -260,7 +260,7 @@ spec:
           emptyDir: {}
       serviceAccountName: kubernetes-dashboard
       nodeSelector:
-        "kubernetes.io/os": linux
+        kubernetes.io/os: "linux"
         node-role.kubernetes.io/infra: ""
       # Comment the following tolerations if Dashboard must not be deployed on master
       tolerations:
@@ -331,7 +331,7 @@ spec:
             runAsGroup: 2001
       serviceAccountName: kubernetes-dashboard
       nodeSelector:
-        "kubernetes.io/os": linux
+        kubernetes.io/os: "linux"
         node-role.kubernetes.io/control-plane: ""
         node-role.kubernetes.io/infra: ""
       # Comment the following tolerations if Dashboard must not be deployed on master
