@@ -385,6 +385,7 @@ spec:
     app.kubernetes.io/component: controller
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/name: ingress-nginx
+  externalTrafficPolicy: Cluster
   type: NodePort
 ---
 apiVersion: v1
