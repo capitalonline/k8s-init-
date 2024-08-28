@@ -56,7 +56,6 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/backend-protocol: HTTPS
 spec:
-  ingressClassName: nginx
   tls:
     - secretName: kubernetes-dashboard-certs
   rules:
