@@ -229,8 +229,8 @@ spec:
           args:
             #- --auto-generate-certificates
             #- --namespace=kubernetes-dashboard
-            - --tls-cert-file=/crt
-            - --tls-key-file=/key
+            - --tls-cert-file=/tls.crt
+            - --tls-key-file=/tls.key
             - --namespace=kube-system
             # Uncomment the following line to manually specify Kubernetes API server Host
             # If not specified, Dashboard will attempt to auto discover the API server and connect
