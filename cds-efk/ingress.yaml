@@ -4,11 +4,13 @@ metadata:
    name: kibana
    namespace: logging
 spec:
+   tls:
+     - secretName: logging-certs
    rules:
    - host: kibana-ecndpx.yun-paas.com
      http:
        paths:
        - path:
          backend:
-          serviceName: kibana
-          servicePort: 5601
+         serviceName: kibana
+         servicePort: 5601
