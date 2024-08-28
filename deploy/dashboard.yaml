@@ -71,19 +71,19 @@ spec:
             port: 
               number: 443
 
----
-
-apiVersion: v1
-kind: Secret
-metadata:
-  labels:
-    k8s-app: kubernetes-dashboard
-  name: kubernetes-dashboard-certs
-  namespace: kube-system 
-type: Opaque
-data:
-  crt: '*'
-  key: '*'
+#---
+#
+#apiVersion: v1
+#kind: Secret
+#metadata:
+#  labels:
+#    k8s-app: kubernetes-dashboard
+#  name: kubernetes-dashboard-certs
+#  namespace: kube-system
+#type: Opaque
+#data:
+#  crt: '*'
+#  key: '*'
 
 ---
 

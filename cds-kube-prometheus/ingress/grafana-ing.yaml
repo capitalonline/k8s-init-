@@ -5,6 +5,8 @@ metadata:
   namespace: monitoring
 spec:
   ingressClassName: nginx
+  tls:
+    - secretName: monitoring-certs
   rules:
   - host: grafana-i7oqvu.yun-paas.com
     http:
