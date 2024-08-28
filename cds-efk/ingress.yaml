@@ -4,6 +4,7 @@ metadata:
   name: kibana
   namespace: logging
 spec:
+  ingressClassName: nginx
   tls:
     - secretName: logging-certs
   rules:
