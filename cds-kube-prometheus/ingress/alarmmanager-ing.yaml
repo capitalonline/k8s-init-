@@ -4,6 +4,9 @@ metadata:
    name: alarm
    namespace: monitoring
 spec:
+   ingressClassName: nginx
+   tls:
+     - secretName: monitoring-certs
    rules:
    - host: k8s.alarm
      http:

@@ -4,6 +4,8 @@ metadata:
    name: kibana
    namespace: logging
 spec:
+   tls:
+     - secretName: logging-certs
    rules:
    - host: kibana-ecndpx.yun-paas.com
      http:

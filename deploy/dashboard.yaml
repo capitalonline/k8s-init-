@@ -67,19 +67,19 @@ spec:
           serviceName: kubernetes-dashboard
           servicePort: 443
 
----
-
-apiVersion: v1
-kind: Secret
-metadata:
-  labels:
-    k8s-app: kubernetes-dashboard
-  name: kubernetes-dashboard-certs
-  namespace: kube-system
-type: Opaque
-data:
-  crt: '*'
-  key: '*'
+#---
+#
+#apiVersion: v1
+#kind: Secret
+#metadata:
+#  labels:
+#    k8s-app: kubernetes-dashboard
+#  name: kubernetes-dashboard-certs
+#  namespace: kube-system
+#type: Opaque
+#data:
+#  crt: '*'
+#  key: '*'
 
 ---
 
@@ -221,9 +221,10 @@ spec:
             - containerPort: 8443
               protocol: TCP
           args:
-            # - --auto-generate-certificates
-            - --tls-cert-file=/crt
-            - --tls-key-file=/key
+            #- --auto-generate-certificates
+            #- --namespace=kubernetes-dashboard
+            - --tls-cert-file=/tls.crt
+            - --tls-key-file=/tls.key
             - --namespace=kube-system
             # Uncomment the following line to manually specify Kubernetes API server Host
             # If not specified, Dashboard will attempt to auto discover the API server and connect
