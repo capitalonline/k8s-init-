@@ -4,6 +4,9 @@ metadata:
    name: prometheus
    namespace: monitoring
 spec:
+   ingressClassName: nginx
+   tls:
+     - secretName: monitoring-certs
    rules:
    - host: k8s.prometheus
      http:
