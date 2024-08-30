@@ -4,6 +4,9 @@ metadata:
    name: grafana
    namespace: monitoring
 spec:
+   ingressClassName: nginx
+   tls:
+     - secretName: monitoring-certs
    rules:
    - host: k8s.grafana
      http:
