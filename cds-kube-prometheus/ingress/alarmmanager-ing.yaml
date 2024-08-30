@@ -4,6 +4,8 @@ metadata:
    name: alarm
    namespace: monitoring
 spec:
+   tls:
+     - secretName: monitoring-certs
    rules:
    - host: k8s.alarm
      http:
